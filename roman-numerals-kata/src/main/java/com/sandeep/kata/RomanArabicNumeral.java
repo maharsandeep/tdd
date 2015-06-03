@@ -9,8 +9,10 @@ public class RomanArabicNumeral {
 		numeral = num;
 		if (num < 1 || num > 3999) {
 			roman = "NOT-SUPPORTED";
-		} else {
+		} else if (num == 1) {
 			roman = "I";
+		}else if (num == 5) {
+			roman = "V";
 		}
 	}
 
