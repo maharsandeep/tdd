@@ -47,8 +47,8 @@ public class RomanArabicNumeral {
 			if (number < 0)
 				return -1;
 
-			i++; 
-			
+			i++;
+
 			if (i == rom.length()) {
 				arabic += number;
 			} else {
@@ -56,9 +56,11 @@ public class RomanArabicNumeral {
 				if (nextNumber > number) {
 					arabic += (nextNumber - number);
 					i++;
-				} 
+				} else {
+					arabic += number;
+				}
 			}
-		} 
+		}
 
 		if (arabic > 3999)
 			arabic = -1;
