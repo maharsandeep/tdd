@@ -13,11 +13,17 @@ public class RomanArabicNumeral {
 		if (num < 1 || num > 3999) {
 			roman = "NOT-SUPPORTED";
 		} else {
-			setRomanValue(num);
+			calculateRomanValue(num);
 		}
 	}
 
-	private void setRomanValue(int num) {
+	public void setRoman(String rom) {
+		roman = rom;
+		
+		numeral = 1;
+	}
+
+	private void calculateRomanValue(int num) {
 		roman = "";
 		int N = num;
 		for (int i = 0; i < numbers.length; i++) {
@@ -30,6 +36,10 @@ public class RomanArabicNumeral {
 
 	public String getRoman() {
 		return roman;
+	}
+
+	public int getArabic() {
+		return numeral;
 	}
 
 }
