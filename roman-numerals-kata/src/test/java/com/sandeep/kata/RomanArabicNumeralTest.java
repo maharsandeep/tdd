@@ -126,4 +126,16 @@ public class RomanArabicNumeralTest {
 		assertEquals("MCMLXXXIX", ran.getRoman());
 	}
 
+	@Test
+	public void verifyNumeralRandom() {
+		ran.setArabic(3456);
+		assertEquals("MMMCDLVI", ran.getRoman());
+		ran.setArabic(786);
+		assertEquals("DCCLXXXVI", ran.getRoman());
+		ran.setArabic(2765);
+		assertEquals("MMDCCLXV", ran.getRoman());
+		ran.setArabic(1234);
+		assertEquals("MCCXXXIV", ran.getRoman());
+	}
+
 }
