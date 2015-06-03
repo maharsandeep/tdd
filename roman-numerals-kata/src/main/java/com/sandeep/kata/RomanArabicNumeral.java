@@ -9,10 +9,12 @@ public class RomanArabicNumeral {
 		numeral = num;
 		if (num < 1 || num > 3999) {
 			roman = "NOT-SUPPORTED";
+		} else {
+			roman = "I";
 		}
 	}
-	
-	public String getRoman(){
+
+	public String getRoman() {
 		return roman;
 	}
 

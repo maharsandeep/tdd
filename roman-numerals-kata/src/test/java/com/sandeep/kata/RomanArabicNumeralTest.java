@@ -29,5 +29,10 @@ public class RomanArabicNumeralTest {
 		ran.setArabic(4001);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 	}
-
+	
+	@Test
+	public void verifyNumeral1(){
+		ran.setArabic(1);
+		assertEquals("I", ran.getRoman());		
+	}
 }
