@@ -127,6 +127,17 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyInvalidCharactersInRomanString() {
+		ran.setRoman("XVKI");
+		assertEquals(-1, ran.getArabic());
+		ran.setRoman("bcv");
+		assertEquals(-1, ran.getArabic());
+		ran.setRoman("xxmz");
+		assertEquals(-1, ran.getArabic());
+	}
+
+
+	@Test
 	public void verifyNumeral1000() {
 		ran.setArabic(1000);
 		assertEquals("M", ran.getRoman());

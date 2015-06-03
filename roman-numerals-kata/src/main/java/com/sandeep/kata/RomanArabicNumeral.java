@@ -30,14 +30,38 @@ public class RomanArabicNumeral {
 
 	public void setRoman(String rom) {
 		roman = rom;
-		if (rom == null || "".equalsIgnoreCase(rom.trim())) {
+		if (rom == null || "".equalsIgnoreCase(rom.trim()) || rom.length() < 1) {
 			numeral = -1;
 		} else {
-			numeral = getArabicValue(rom.toUpperCase().charAt(0));
+			numeral = getArabicValue(rom.toUpperCase());
 		}
 	}
 
-	private int getArabicValue(char letter) {
+	private int getArabicValue(String rom) {
+		int i = 0;
+		int arabic = 0;
+
+		while (i < rom.length()) {
+			char letter = rom.charAt(i);
+			int number = getArabicValueForRomanLetter(letter);
+			if (number < 0)
+				return -1;
+
+			i++; 
+			
+			if (i == rom.length()) {
+				arabic += number;
+			}
+		} 
+
+		if (arabic > 3999)
+			arabic = -1;
+
+		return arabic;
+
+	}
+
+	private int getArabicValueForRomanLetter(char letter) {
 		switch (letter) {
 		case 'I':
 			return 1;
