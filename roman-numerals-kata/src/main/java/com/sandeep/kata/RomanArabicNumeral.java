@@ -7,22 +7,34 @@ public class RomanArabicNumeral {
 
 	public void setArabic(int num) {
 		numeral = num;
-		if (num < 1 || num > 3999) {
-			roman = "NOT-SUPPORTED";
-		} else if (num == 1) {
+		setRomanValue(num);
+	}
+
+	private void setRomanValue(int num) {
+		switch (num) {
+		case 1:
 			roman = "I";
-		} else if (num == 5) {
+			break;
+		case 5:
 			roman = "V";
-		} else if (num == 10) {
+			break;
+		case 10:
 			roman = "X";
-		} else if (num == 50) {
+			break;
+		case 50:
 			roman = "L";
-		} else if (num == 100) {
+			break;
+		case 100:
 			roman = "C";
-		} else if (num == 500) {
+			break;
+		case 500:
 			roman = "D";
-		} else if (num == 1000) {
+			break;
+		case 1000:
 			roman = "M";
+			break;
+		default:
+			roman = "NOT-SUPPORTED";
 		}
 	}
 
