@@ -6,81 +6,111 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class RomanArabicNumeralTest {
-	
+
 	private RomanArabicNumeral ran;
-	
+
 	@Before
-	public void init(){
+	public void init() {
 		ran = new RomanArabicNumeral();
 	}
-	
+
 	@Test
-	public void checkIfLessThanArabicOneNumbersNotSupported(){
+	public void checkIfLessThanArabicOneNumbersNotSupported() {
 		ran.setArabic(0);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 		ran.setArabic(-1);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 	}
-	
+
 	@Test
-	public void checkIfGreaterThan3999NumbersNotSupported(){
+	public void checkIfGreaterThan3999NumbersNotSupported() {
 		ran.setArabic(4000);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 		ran.setArabic(4001);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral1(){
+	public void verifyNumeral1() {
 		ran.setArabic(1);
-		assertEquals("I", ran.getRoman());		
+		assertEquals("I", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral5(){
+	public void verifyNumeral5() {
 		ran.setArabic(5);
-		assertEquals("V", ran.getRoman());		
+		assertEquals("V", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral10(){
+	public void verifyNumeral10() {
 		ran.setArabic(10);
-		assertEquals("X", ran.getRoman());		
+		assertEquals("X", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral50(){
+	public void verifyNumeral50() {
 		ran.setArabic(50);
-		assertEquals("L", ran.getRoman());		
+		assertEquals("L", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral100(){
+	public void verifyNumeral100() {
 		ran.setArabic(100);
-		assertEquals("C", ran.getRoman());		
+		assertEquals("C", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral500(){
+	public void verifyNumeral500() {
 		ran.setArabic(500);
-		assertEquals("D", ran.getRoman());		
+		assertEquals("D", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral1000(){
+	public void verifyNumeral1000() {
 		ran.setArabic(1000);
-		assertEquals("M", ran.getRoman());		
+		assertEquals("M", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral3(){
+	public void verifyNumeral3() {
 		ran.setArabic(3);
-		assertEquals("III", ran.getRoman());		
+		assertEquals("III", ran.getRoman());
 	}
-	
+
 	@Test
-	public void verifyNumeral4(){
+	public void verifyNumeral4() {
 		ran.setArabic(4);
-		assertEquals("IV", ran.getRoman());		
+		assertEquals("IV", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral9() {
+		ran.setArabic(9);
+		assertEquals("IX", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral40() {
+		ran.setArabic(40);
+		assertEquals("XL", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral90() {
+		ran.setArabic(90);
+		assertEquals("XC", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral400() {
+		ran.setArabic(400);
+		assertEquals("CD", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral900() {
+		ran.setArabic(900);
+		assertEquals("CM", ran.getRoman());
 	}
 }

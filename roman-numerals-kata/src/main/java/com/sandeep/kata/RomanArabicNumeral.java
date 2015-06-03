@@ -5,8 +5,8 @@ public class RomanArabicNumeral {
 	private int numeral;
 	private String roman;
 
-	private static int[] numbers = { 1000, 500, 100, 50, 10, 5, 4, 1 };
-	private static String[] letters = { "M", "D", "C", "L", "X", "V", "IV", "I" };
+	private static int[] numbers = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+	private static String[] letters = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
 	public void setArabic(int num) {
 		numeral = num;
