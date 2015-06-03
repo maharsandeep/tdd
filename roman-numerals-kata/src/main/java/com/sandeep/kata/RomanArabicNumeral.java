@@ -30,7 +30,7 @@ public class RomanArabicNumeral {
 
 	public void setRoman(String rom) {
 		roman = rom;
-		if (rom == null || "".equalsIgnoreCase(rom.trim()) || rom.length() < 1) {
+		if (rom == null || rom.length() < 1 || "".equalsIgnoreCase(rom.trim()) ) {
 			numeral = -1;
 		} else {
 			numeral = getArabicValue(rom.toUpperCase());

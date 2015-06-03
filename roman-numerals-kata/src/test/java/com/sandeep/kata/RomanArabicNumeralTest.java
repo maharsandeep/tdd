@@ -127,6 +127,15 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyMaxRomanString() {
+		ran.setRoman("MMMMMMM");
+		assertEquals(-1, ran.getArabic());
+		ran.setRoman("DDDDDDDDDDDDDDDDD");
+		assertEquals(-1, ran.getArabic());
+	}
+
+
+	@Test
 	public void verifyInvalidCharactersInRomanString() {
 		ran.setRoman("XVKI");
 		assertEquals(-1, ran.getArabic());

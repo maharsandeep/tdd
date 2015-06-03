@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>RomanArabicNumeral.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RomanArabicNumeralTest (Jun 4, 2015 1:16:13 AM)</a> &gt; <a href="../../index.html" class="el_group">roman-numerals-kata</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">com.sandeep.kata</a> &gt; <span class="el_source">RomanArabicNumeral.java</span></div><h1>RomanArabicNumeral.java</h1><pre class="source lang-java linenums">package com.sandeep.kata;
+
+<span class="fc" id="L3">public class RomanArabicNumeral {</span>
+
+	private int numeral;
+	private String roman;
+
+<span class="fc" id="L8">	private static int[] numbers = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };</span>
+<span class="fc" id="L9">	private static String[] letters = { &quot;M&quot;, &quot;CM&quot;, &quot;D&quot;, &quot;CD&quot;, &quot;C&quot;, &quot;XC&quot;, &quot;L&quot;, &quot;XL&quot;, &quot;X&quot;, &quot;IX&quot;, &quot;V&quot;, &quot;IV&quot;, &quot;I&quot; };</span>
+
+	public void setArabic(int num) {
+<span class="fc" id="L12">		numeral = num;</span>
+<span class="fc bfc" id="L13" title="All 4 branches covered.">		if (num &lt; 1 || num &gt; 3999) {</span>
+<span class="fc" id="L14">			roman = &quot;NOT-SUPPORTED&quot;;</span>
+<span class="fc" id="L15">		} else {</span>
+<span class="fc" id="L16">			calculateRomanValue(num);</span>
+		}
+<span class="fc" id="L18">	}</span>
+
+	private void calculateRomanValue(int num) {
+<span class="fc" id="L21">		roman = &quot;&quot;;</span>
+<span class="fc" id="L22">		int N = num;</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">		for (int i = 0; i &lt; numbers.length; i++) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">			while (N &gt;= numbers[i]) {</span>
+<span class="fc" id="L25">				roman += letters[i];</span>
+<span class="fc" id="L26">				N -= numbers[i];</span>
+			}
+		}
+<span class="fc" id="L29">	}</span>
+
+	public void setRoman(String rom) {
+<span class="fc" id="L32">		roman = rom;</span>
+<span class="fc bfc" id="L33" title="All 6 branches covered.">		if (rom == null || rom.length() &lt; 1 || &quot;&quot;.equalsIgnoreCase(rom.trim()) ) {</span>
+<span class="fc" id="L34">			numeral = -1;</span>
+<span class="fc" id="L35">		} else {</span>
+<span class="fc" id="L36">			numeral = getArabicValue(rom.toUpperCase());</span>
+		}
+<span class="fc" id="L38">	}</span>
+
+	private int getArabicValue(String rom) {
+<span class="fc" id="L41">		int i = 0;</span>
+<span class="fc" id="L42">		int arabic = 0;</span>
+
+<span class="fc bfc" id="L44" title="All 2 branches covered.">		while (i &lt; rom.length()) {</span>
+<span class="fc" id="L45">			char letter = rom.charAt(i);</span>
+<span class="fc" id="L46">			int number = getArabicValueForRomanLetter(letter);</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			if (number &lt; 0)</span>
+<span class="fc" id="L48">				return -1;</span>
+
+<span class="fc" id="L50">			i++;</span>
+
+<span class="fc bfc" id="L52" title="All 2 branches covered.">			if (i == rom.length()) {</span>
+<span class="fc" id="L53">				arabic += number;</span>
+<span class="fc" id="L54">			} else {</span>
+<span class="fc" id="L55">				int nextNumber = getArabicValueForRomanLetter(rom.charAt(i));</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">				if (nextNumber &gt; number) {</span>
+<span class="fc" id="L57">					arabic += (nextNumber - number);</span>
+<span class="fc" id="L58">					i++;</span>
+<span class="fc" id="L59">				} else {</span>
+<span class="fc" id="L60">					arabic += number;</span>
+				}
+			}
+		}
+
+<span class="fc bfc" id="L65" title="All 2 branches covered.">		if (arabic &gt; 3999)</span>
+<span class="fc" id="L66">			arabic = -1;</span>
+
+<span class="fc" id="L68">		return arabic;</span>
+
+	}
+
+	private int getArabicValueForRomanLetter(char letter) {
+<span class="fc bfc" id="L73" title="All 8 branches covered.">		switch (letter) {</span>
+		case 'I':
+<span class="fc" id="L75">			return 1;</span>
+		case 'V':
+<span class="fc" id="L77">			return 5;</span>
+		case 'X':
+<span class="fc" id="L79">			return 10;</span>
+		case 'L':
+<span class="fc" id="L81">			return 50;</span>
+		case 'C':
+<span class="fc" id="L83">			return 100;</span>
+		case 'D':
+<span class="fc" id="L85">			return 500;</span>
+		case 'M':
+<span class="fc" id="L87">			return 1000;</span>
+		default:
+<span class="fc" id="L89">			return -1;</span>
+		}
+	}
+
+	public String getRoman() {
+<span class="fc" id="L94">		return roman;</span>
+	}
+
+	public int getArabic() {
+<span class="fc" id="L98">		return numeral;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>RomanArabicNumeralTest (Jun 4, 2015 1:16:13 AM)</div></body></html>

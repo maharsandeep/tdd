@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../.resources/report.gif" type="image/gif"/><title>RomanArabicNumeralTest.java</title><link rel="stylesheet" href="../../../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../.sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">RomanArabicNumeralTest (Jun 4, 2015 1:16:13 AM)</a> &gt; <a href="../../index.html" class="el_group">roman-numerals-kata</a> &gt; <a href="../index.html" class="el_bundle">src/test/java</a> &gt; <a href="index.source.html" class="el_package">com.sandeep.kata</a> &gt; <span class="el_source">RomanArabicNumeralTest.java</span></div><h1>RomanArabicNumeralTest.java</h1><pre class="source lang-java linenums">package com.sandeep.kata;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+<span class="fc" id="L8">public class RomanArabicNumeralTest {</span>
+
+	private RomanArabicNumeral ran;
+
+	@Before
+	public void init() {
+<span class="fc" id="L14">		ran = new RomanArabicNumeral();</span>
+<span class="fc" id="L15">	}</span>
+
+	@Test
+	public void checkIfLessThanArabicOneNumbersNotSupported() {
+<span class="fc" id="L19">		ran.setArabic(0);</span>
+<span class="fc" id="L20">		assertEquals(&quot;NOT-SUPPORTED&quot;, ran.getRoman());</span>
+<span class="fc" id="L21">		ran.setArabic(-1);</span>
+<span class="fc" id="L22">		assertEquals(&quot;NOT-SUPPORTED&quot;, ran.getRoman());</span>
+<span class="fc" id="L23">	}</span>
+
+	@Test
+	public void checkIfGreaterThan3999NumbersNotSupported() {
+<span class="fc" id="L27">		ran.setArabic(4000);</span>
+<span class="fc" id="L28">		assertEquals(&quot;NOT-SUPPORTED&quot;, ran.getRoman());</span>
+<span class="fc" id="L29">		ran.setArabic(4001);</span>
+<span class="fc" id="L30">		assertEquals(&quot;NOT-SUPPORTED&quot;, ran.getRoman());</span>
+<span class="fc" id="L31">	}</span>
+
+	@Test
+	public void verifyNumeral1() {
+<span class="fc" id="L35">		ran.setArabic(1);</span>
+<span class="fc" id="L36">		assertEquals(&quot;I&quot;, ran.getRoman());</span>
+<span class="fc" id="L37">	}</span>
+
+	@Test
+	public void verifyRoman1() {
+<span class="fc" id="L41">		ran.setRoman(&quot;I&quot;);</span>
+<span class="fc" id="L42">		assertEquals(1, ran.getArabic());</span>
+<span class="fc" id="L43">	}</span>
+
+	@Test
+	public void verifyNumeral5() {
+<span class="fc" id="L47">		ran.setArabic(5);</span>
+<span class="fc" id="L48">		assertEquals(&quot;V&quot;, ran.getRoman());</span>
+<span class="fc" id="L49">	}</span>
+
+	@Test
+	public void verifyRoman5() {
+<span class="fc" id="L53">		ran.setRoman(&quot;V&quot;);</span>
+<span class="fc" id="L54">		assertEquals(5, ran.getArabic());</span>
+<span class="fc" id="L55">	}</span>
+
+	@Test
+	public void verifyNumeral10() {
+<span class="fc" id="L59">		ran.setArabic(10);</span>
+<span class="fc" id="L60">		assertEquals(&quot;X&quot;, ran.getRoman());</span>
+<span class="fc" id="L61">	}</span>
+
+	@Test
+	public void verifyRoman10() {
+<span class="fc" id="L65">		ran.setRoman(&quot;X&quot;);</span>
+<span class="fc" id="L66">		assertEquals(10, ran.getArabic());</span>
+<span class="fc" id="L67">	}</span>
+
+	@Test
+	public void verifyNumeral50() {
+<span class="fc" id="L71">		ran.setArabic(50);</span>
+<span class="fc" id="L72">		assertEquals(&quot;L&quot;, ran.getRoman());</span>
+<span class="fc" id="L73">	}</span>
+
+	@Test
+	public void verifyRoman50() {
+<span class="fc" id="L77">		ran.setRoman(&quot;L&quot;);</span>
+<span class="fc" id="L78">		assertEquals(50, ran.getArabic());</span>
+<span class="fc" id="L79">	}</span>
+
+	@Test
+	public void verifyNumeral100() {
+<span class="fc" id="L83">		ran.setArabic(100);</span>
+<span class="fc" id="L84">		assertEquals(&quot;C&quot;, ran.getRoman());</span>
+<span class="fc" id="L85">	}</span>
+
+	@Test
+	public void verifyRoman100() {
+<span class="fc" id="L89">		ran.setRoman(&quot;C&quot;);</span>
+<span class="fc" id="L90">		assertEquals(100, ran.getArabic());</span>
+<span class="fc" id="L91">	}</span>
+
+	@Test
+	public void verifyNumeral500() {
+<span class="fc" id="L95">		ran.setArabic(500);</span>
+<span class="fc" id="L96">		assertEquals(&quot;D&quot;, ran.getRoman());</span>
+<span class="fc" id="L97">	}</span>
+
+	@Test
+	public void verifyRoman500() {
+<span class="fc" id="L101">		ran.setRoman(&quot;D&quot;);</span>
+<span class="fc" id="L102">		assertEquals(500, ran.getArabic());</span>
+<span class="fc" id="L103">	}</span>
+
+	@Test
+	public void verifyRomanNumberResultsAreCaseInsensitive() {
+<span class="fc" id="L107">		ran.setRoman(&quot;D&quot;);</span>
+<span class="fc" id="L108">		assertEquals(500, ran.getArabic());</span>
+<span class="fc" id="L109">		ran.setRoman(&quot;d&quot;);</span>
+<span class="fc" id="L110">		assertEquals(500, ran.getArabic());</span>
+		
+
+<span class="fc" id="L113">		ran.setRoman(&quot;m&quot;);</span>
+<span class="fc" id="L114">		assertEquals(1000, ran.getArabic());</span>
+<span class="fc" id="L115">		ran.setRoman(&quot;M&quot;);</span>
+<span class="fc" id="L116">		assertEquals(1000, ran.getArabic());</span>
+<span class="fc" id="L117">	}</span>
+
+	@Test
+	public void verifyEmptyOrNullRomanString() {
+<span class="fc" id="L121">		ran.setRoman(&quot;&quot;);</span>
+<span class="fc" id="L122">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L123">		ran.setRoman(null);</span>
+<span class="fc" id="L124">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L125">		ran.setRoman(&quot;    &quot;);</span>
+<span class="fc" id="L126">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L127">	}</span>
+
+	@Test
+	public void verifyMaxRomanString() {
+<span class="fc" id="L131">		ran.setRoman(&quot;MMMMMMM&quot;);</span>
+<span class="fc" id="L132">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L133">		ran.setRoman(&quot;DDDDDDDDDDDDDDDDD&quot;);</span>
+<span class="fc" id="L134">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L135">	}</span>
+
+
+	@Test
+	public void verifyInvalidCharactersInRomanString() {
+<span class="fc" id="L140">		ran.setRoman(&quot;XVKI&quot;);</span>
+<span class="fc" id="L141">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L142">		ran.setRoman(&quot;bcv&quot;);</span>
+<span class="fc" id="L143">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L144">		ran.setRoman(&quot;xxmz&quot;);</span>
+<span class="fc" id="L145">		assertEquals(-1, ran.getArabic());</span>
+<span class="fc" id="L146">	}</span>
+
+	@Test
+	public void verifyValidRomanStringsWithIncrementingRomanChars() {
+<span class="fc" id="L150">		ran.setRoman(&quot;IX&quot;);</span>
+<span class="fc" id="L151">		assertEquals(9, ran.getArabic());</span>
+<span class="fc" id="L152">		ran.setRoman(&quot;IXM&quot;);</span>
+<span class="fc" id="L153">		assertEquals(1009, ran.getArabic());</span>
+<span class="fc" id="L154">		ran.setRoman(&quot;VXC&quot;);</span>
+<span class="fc" id="L155">		assertEquals(105, ran.getArabic());</span>
+<span class="fc" id="L156">	}</span>
+
+	@Test
+	public void verifyNumeral1000() {
+<span class="fc" id="L160">		ran.setArabic(1000);</span>
+<span class="fc" id="L161">		assertEquals(&quot;M&quot;, ran.getRoman());</span>
+<span class="fc" id="L162">	}</span>
+
+	@Test
+	public void verifyRoman1000() {
+<span class="fc" id="L166">		ran.setRoman(&quot;M&quot;);</span>
+<span class="fc" id="L167">		assertEquals(1000, ran.getArabic());</span>
+<span class="fc" id="L168">	}</span>
+
+	@Test
+	public void verifyNumeral3() {
+<span class="fc" id="L172">		ran.setArabic(3);</span>
+<span class="fc" id="L173">		assertEquals(&quot;III&quot;, ran.getRoman());</span>
+<span class="fc" id="L174">	}</span>
+
+	@Test
+	public void verifyRoman3() {
+<span class="fc" id="L178">		ran.setRoman(&quot;III&quot;);</span>
+<span class="fc" id="L179">		assertEquals(3, ran.getArabic());</span>
+<span class="fc" id="L180">	}</span>
+
+	@Test
+	public void verifyNumeral4() {
+<span class="fc" id="L184">		ran.setArabic(4);</span>
+<span class="fc" id="L185">		assertEquals(&quot;IV&quot;, ran.getRoman());</span>
+<span class="fc" id="L186">	}</span>
+
+	@Test
+	public void verifyRoman4() {
+<span class="fc" id="L190">		ran.setRoman(&quot;IV&quot;);</span>
+<span class="fc" id="L191">		assertEquals(4, ran.getArabic());</span>
+<span class="fc" id="L192">	}</span>
+
+	@Test
+	public void verifyNumeral9() {
+<span class="fc" id="L196">		ran.setArabic(9);</span>
+<span class="fc" id="L197">		assertEquals(&quot;IX&quot;, ran.getRoman());</span>
+<span class="fc" id="L198">	}</span>
+
+	@Test
+	public void verifyRoman9() {
+<span class="fc" id="L202">		ran.setRoman(&quot;IX&quot;);</span>
+<span class="fc" id="L203">		assertEquals(9, ran.getArabic());</span>
+<span class="fc" id="L204">	}</span>
+
+	@Test
+	public void verifyNumeral40() {
+<span class="fc" id="L208">		ran.setArabic(40);</span>
+<span class="fc" id="L209">		assertEquals(&quot;XL&quot;, ran.getRoman());</span>
+<span class="fc" id="L210">	}</span>
+
+	@Test
+	public void verifyRoman40() {
+<span class="fc" id="L214">		ran.setRoman(&quot;XL&quot;);</span>
+<span class="fc" id="L215">		assertEquals(40, ran.getArabic());</span>
+<span class="fc" id="L216">	}</span>
+
+	@Test
+	public void verifyNumeral90() {
+<span class="fc" id="L220">		ran.setArabic(90);</span>
+<span class="fc" id="L221">		assertEquals(&quot;XC&quot;, ran.getRoman());</span>
+<span class="fc" id="L222">	}</span>
+
+	@Test
+	public void verifyRoman90() {
+<span class="fc" id="L226">		ran.setRoman(&quot;XC&quot;);</span>
+<span class="fc" id="L227">		assertEquals(90, ran.getArabic());</span>
+<span class="fc" id="L228">	}</span>
+
+	@Test
+	public void verifyNumeral400() {
+<span class="fc" id="L232">		ran.setArabic(400);</span>
+<span class="fc" id="L233">		assertEquals(&quot;CD&quot;, ran.getRoman());</span>
+<span class="fc" id="L234">	}</span>
+
+	@Test
+	public void verifyRoman400() {
+<span class="fc" id="L238">		ran.setRoman(&quot;CD&quot;);</span>
+<span class="fc" id="L239">		assertEquals(400, ran.getArabic());</span>
+<span class="fc" id="L240">	}</span>
+
+	@Test
+	public void verifyNumeral900() {
+<span class="fc" id="L244">		ran.setArabic(900);</span>
+<span class="fc" id="L245">		assertEquals(&quot;CM&quot;, ran.getRoman());</span>
+<span class="fc" id="L246">	}</span>
+
+	@Test
+	public void verifyRoman900() {
+<span class="fc" id="L250">		ran.setRoman(&quot;CM&quot;);</span>
+<span class="fc" id="L251">		assertEquals(900, ran.getArabic());</span>
+<span class="fc" id="L252">	}</span>
+
+	@Test
+	public void verifyNumeral1066() {
+<span class="fc" id="L256">		ran.setArabic(1066);</span>
+<span class="fc" id="L257">		assertEquals(&quot;MLXVI&quot;, ran.getRoman());</span>
+<span class="fc" id="L258">	}</span>
+
+	@Test
+	public void verifyRoman1066() {
+<span class="fc" id="L262">		ran.setRoman(&quot;MLXVI&quot;);</span>
+<span class="fc" id="L263">		assertEquals(1066, ran.getArabic());</span>
+<span class="fc" id="L264">	}</span>
+
+	@Test
+	public void verifyNumeral1989() {
+<span class="fc" id="L268">		ran.setArabic(1989);</span>
+<span class="fc" id="L269">		assertEquals(&quot;MCMLXXXIX&quot;, ran.getRoman());</span>
+<span class="fc" id="L270">	}</span>
+
+	@Test
+	public void verifyRoman1989() {
+<span class="fc" id="L274">		ran.setRoman(&quot;MCMLXXXIX&quot;);</span>
+<span class="fc" id="L275">		assertEquals(1989, ran.getArabic());</span>
+<span class="fc" id="L276">	}</span>
+
+	@Test
+	public void verifyNumeralRandom() {
+<span class="fc" id="L280">		ran.setArabic(3456);</span>
+<span class="fc" id="L281">		assertEquals(&quot;MMMCDLVI&quot;, ran.getRoman());</span>
+<span class="fc" id="L282">		ran.setArabic(786);</span>
+<span class="fc" id="L283">		assertEquals(&quot;DCCLXXXVI&quot;, ran.getRoman());</span>
+<span class="fc" id="L284">		ran.setArabic(2765);</span>
+<span class="fc" id="L285">		assertEquals(&quot;MMDCCLXV&quot;, ran.getRoman());</span>
+<span class="fc" id="L286">		ran.setArabic(1234);</span>
+<span class="fc" id="L287">		assertEquals(&quot;MCCXXXIV&quot;, ran.getRoman());</span>
+<span class="fc" id="L288">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.2.201409121644</span>RomanArabicNumeralTest (Jun 4, 2015 1:16:13 AM)</div></body></html>
