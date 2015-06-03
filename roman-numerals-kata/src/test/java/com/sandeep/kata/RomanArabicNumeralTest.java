@@ -41,4 +41,10 @@ public class RomanArabicNumeralTest {
 		ran.setArabic(5);
 		assertEquals("V", ran.getRoman());		
 	}
+	
+	@Test
+	public void verifyNumeral10(){
+		ran.setArabic(10);
+		assertEquals("X", ran.getRoman());		
+	}
 }

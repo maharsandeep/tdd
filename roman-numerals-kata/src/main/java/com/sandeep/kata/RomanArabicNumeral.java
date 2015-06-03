@@ -11,8 +11,10 @@ public class RomanArabicNumeral {
 			roman = "NOT-SUPPORTED";
 		} else if (num == 1) {
 			roman = "I";
-		}else if (num == 5) {
+		} else if (num == 5) {
 			roman = "V";
+		} else if (num == 10) {
+			roman = "X";
 		}
 	}
 
