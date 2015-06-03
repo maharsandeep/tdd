@@ -7,7 +7,7 @@ public class RomanArabicNumeral {
 
 	public void setArabic(int num) {
 		numeral = num;
-		if (num < 1) {
+		if (num < 1 || num > 3999) {
 			roman = "NOT-SUPPORTED";
 		}
 	}

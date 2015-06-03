@@ -13,5 +13,14 @@ public class RomanArabicNumeralTest {
 		ran.setArabic(-1);
 		assertEquals("NOT-SUPPORTED", ran.getRoman());
 	}
+	
+	@Test
+	public void checkIfGreaterThan3999NumbersNotSupported(){
+		RomanArabicNumeral ran = new RomanArabicNumeral();
+		ran.setArabic(4000);
+		assertEquals("NOT-SUPPORTED", ran.getRoman());
+		ran.setArabic(4001);
+		assertEquals("NOT-SUPPORTED", ran.getRoman());
+	}
 
 }
