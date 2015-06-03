@@ -19,8 +19,11 @@ public class RomanArabicNumeral {
 
 	public void setRoman(String rom) {
 		roman = rom;
-		
-		numeral = 1;
+
+		if ("I".equals(rom))
+			numeral = 1;
+		else if ("V".equals(rom))
+			numeral = 5;
 	}
 
 	private void calculateRomanValue(int num) {
