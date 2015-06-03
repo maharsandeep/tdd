@@ -136,6 +136,15 @@ public class RomanArabicNumeralTest {
 		assertEquals(-1, ran.getArabic());
 	}
 
+	@Test
+	public void verifyValidRomanStringsWithIncrementingRomanChars() {
+		ran.setRoman("IX");
+		assertEquals(9, ran.getArabic());
+		ran.setRoman("IXM");
+		assertEquals(1009, ran.getArabic());
+		ran.setRoman("VXC");
+		assertEquals(105, ran.getArabic());
+	}
 
 	@Test
 	public void verifyNumeral1000() {

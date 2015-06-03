@@ -51,6 +51,12 @@ public class RomanArabicNumeral {
 			
 			if (i == rom.length()) {
 				arabic += number;
+			} else {
+				int nextNumber = getArabicValueForRomanLetter(rom.charAt(i));
+				if (nextNumber > number) {
+					arabic += (nextNumber - number);
+					i++;
+				} 
 			}
 		} 
 
