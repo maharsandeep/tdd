@@ -103,6 +103,20 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyRomanNumberResultsAreCaseInsensitive() {
+		ran.setRoman("D");
+		assertEquals(500, ran.getArabic());
+		ran.setRoman("d");
+		assertEquals(500, ran.getArabic());
+		
+
+		ran.setRoman("m");
+		assertEquals(1000, ran.getArabic());
+		ran.setRoman("M");
+		assertEquals(1000, ran.getArabic());
+	}
+
+	@Test
 	public void verifyNumeral1000() {
 		ran.setArabic(1000);
 		assertEquals("M", ran.getRoman());
