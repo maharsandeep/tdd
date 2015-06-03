@@ -113,4 +113,17 @@ public class RomanArabicNumeralTest {
 		ran.setArabic(900);
 		assertEquals("CM", ran.getRoman());
 	}
+
+	@Test
+	public void verifyNumeral1066() {
+		ran.setArabic(1066);
+		assertEquals("MLXVI", ran.getRoman());
+	}
+
+	@Test
+	public void verifyNumeral1989() {
+		ran.setArabic(1989);
+		assertEquals("MCMLXXXIX", ran.getRoman());
+	}
+
 }
