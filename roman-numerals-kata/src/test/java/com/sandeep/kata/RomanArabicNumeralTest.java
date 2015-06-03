@@ -61,9 +61,21 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyRoman10() {
+		ran.setRoman("X");
+		assertEquals(10, ran.getArabic());
+	}
+
+	@Test
 	public void verifyNumeral50() {
 		ran.setArabic(50);
 		assertEquals("L", ran.getRoman());
+	}
+
+	@Test
+	public void verifyRoman50() {
+		ran.setRoman("L");
+		assertEquals(50, ran.getArabic());
 	}
 
 	@Test
@@ -73,15 +85,33 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyRoman100() {
+		ran.setRoman("C");
+		assertEquals(100, ran.getArabic());
+	}
+
+	@Test
 	public void verifyNumeral500() {
 		ran.setArabic(500);
 		assertEquals("D", ran.getRoman());
 	}
 
 	@Test
+	public void verifyRoman500() {
+		ran.setRoman("D");
+		assertEquals(500, ran.getArabic());
+	}
+
+	@Test
 	public void verifyNumeral1000() {
 		ran.setArabic(1000);
 		assertEquals("M", ran.getRoman());
+	}
+
+	@Test
+	public void verifyRoman1000() {
+		ran.setRoman("M");
+		assertEquals(1000, ran.getArabic());
 	}
 
 	@Test
