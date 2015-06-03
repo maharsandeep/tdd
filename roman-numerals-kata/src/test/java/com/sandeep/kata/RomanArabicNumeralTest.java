@@ -117,6 +117,16 @@ public class RomanArabicNumeralTest {
 	}
 
 	@Test
+	public void verifyEmptyOrNullRomanString() {
+		ran.setRoman("");
+		assertEquals(-1, ran.getArabic());
+		ran.setRoman(null);
+		assertEquals(-1, ran.getArabic());
+		ran.setRoman("    ");
+		assertEquals(-1, ran.getArabic());
+	}
+
+	@Test
 	public void verifyNumeral1000() {
 		ran.setArabic(1000);
 		assertEquals("M", ran.getRoman());
