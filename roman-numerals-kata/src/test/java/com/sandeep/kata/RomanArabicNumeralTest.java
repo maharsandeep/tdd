@@ -71,4 +71,16 @@ public class RomanArabicNumeralTest {
 		ran.setArabic(1000);
 		assertEquals("M", ran.getRoman());		
 	}
+	
+	@Test
+	public void verifyNumeral3(){
+		ran.setArabic(3);
+		assertEquals("III", ran.getRoman());		
+	}
+	
+	@Test
+	public void verifyNumeral4(){
+		ran.setArabic(4);
+		assertEquals("IV", ran.getRoman());		
+	}
 }

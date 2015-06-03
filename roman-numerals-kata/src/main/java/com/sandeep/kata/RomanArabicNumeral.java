@@ -15,6 +15,12 @@ public class RomanArabicNumeral {
 		case 1:
 			roman = "I";
 			break;
+		case 3:
+			roman = "III";
+			break;
+		case 4:
+			roman = "IV";
+			break;
 		case 5:
 			roman = "V";
 			break;
